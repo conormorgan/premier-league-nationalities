@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/premier-league-nationalities/static/css/main.5f361e03.chunk.css",
-    "main.js": "/premier-league-nationalities/static/js/main.3ffb5ee5.chunk.js",
-    "main.js.map": "/premier-league-nationalities/static/js/main.3ffb5ee5.chunk.js.map",
+    "main.css": "/premier-league-nationalities/static/css/main.5facb584.chunk.css",
+    "main.js": "/premier-league-nationalities/static/js/main.baf4c683.chunk.js",
+    "main.js.map": "/premier-league-nationalities/static/js/main.baf4c683.chunk.js.map",
     "runtime-main.js": "/premier-league-nationalities/static/js/runtime-main.5c081f1e.js",
     "runtime-main.js.map": "/premier-league-nationalities/static/js/runtime-main.5c081f1e.js.map",
-    "static/js/2.edf6d905.chunk.js": "/premier-league-nationalities/static/js/2.edf6d905.chunk.js",
-    "static/js/2.edf6d905.chunk.js.map": "/premier-league-nationalities/static/js/2.edf6d905.chunk.js.map",
+    "static/js/2.13d416eb.chunk.js": "/premier-league-nationalities/static/js/2.13d416eb.chunk.js",
+    "static/js/2.13d416eb.chunk.js.map": "/premier-league-nationalities/static/js/2.13d416eb.chunk.js.map",
     "index.html": "/premier-league-nationalities/index.html",
-    "precache-manifest.4cfd4d580af2bc4b33ad4f233fcee48b.js": "/premier-league-nationalities/precache-manifest.4cfd4d580af2bc4b33ad4f233fcee48b.js",
+    "precache-manifest.cb5478c30a8f1c044063420738fb9df8.js": "/premier-league-nationalities/precache-manifest.cb5478c30a8f1c044063420738fb9df8.js",
     "service-worker.js": "/premier-league-nationalities/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/premier-league-nationalities/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.edf6d905.chunk.js.LICENSE.txt": "/premier-league-nationalities/static/js/2.edf6d905.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/premier-league-nationalities/static/media/logo.5d5d9eef.svg"
+    "static/css/main.5facb584.chunk.css.map": "/premier-league-nationalities/static/css/main.5facb584.chunk.css.map",
+    "static/js/2.13d416eb.chunk.js.LICENSE.txt": "/premier-league-nationalities/static/js/2.13d416eb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5c081f1e.js",
-    "static/js/2.edf6d905.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.3ffb5ee5.chunk.js"
+    "static/js/2.13d416eb.chunk.js",
+    "static/css/main.5facb584.chunk.css",
+    "static/js/main.baf4c683.chunk.js"
   ]
 }
