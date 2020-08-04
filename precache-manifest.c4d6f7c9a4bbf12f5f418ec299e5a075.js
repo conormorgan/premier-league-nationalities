@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c03202d7ebca8169a4deeae1872ae5e6",
+    "revision": "f1e27158bf651898b1e402e7c5282c56",
     "url": "/premier-league-nationalities/index.html"
   },
   {
