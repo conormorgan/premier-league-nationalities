@@ -22,7 +22,7 @@
 /* a. General Styles
 /* ------------------------------------------------------------------ */
 
-body { background: #0f0f0f; }
+body { background: #000524; }
 
 /* ------------------------------------------------------------------ */
 /* b. Header Styles
@@ -62,7 +62,7 @@ header .banner-text h1 {
    margin: 0 auto 18px auto;
 }
 header .banner-text h3 {
-   font: 18px/1.9em 'librebaskerville-regular', serif;
+   font: 18px/1.9em 'opensans-bold', serif;
    color: #ddd;
    margin: 0 auto;
    width: 70%;
@@ -135,10 +135,11 @@ header .scrolldown a:hover { color: #0762f9; }
    left: 0;
    top: 0;
 }
-.opaque { background-color: #333; }
+.opaque { background-color: #000524; }
 
 /* hide toggle button */
-#nav-wrap > a.mobile-btn { display: none; }
+#nav-wrap > a.mobile-btn { display: none;   background-color: #19f14f;
+}
 
 ul#nav {
    min-height: 48px;
@@ -170,11 +171,13 @@ ul#nav li a {
 	-moz-transition: color .2s ease-in-out;
 	-o-transition: color .2s ease-in-out;
 	-ms-transition: color .2s ease-in-out;
-	transition: color .2s ease-in-out;
+   transition: color .2s ease-in-out;
+
 }
 
 ul#nav li a:active { background-color: transparent !important; }
-ul#nav li.current a { color: #fe6928; }
+ul#nav li.current a { color: #19f14f; }
+ul#nav a:hover { color: #19f14f; }
 
 
 /* ------------------------------------------------------------------ */
@@ -284,7 +287,7 @@ ul#nav li.current a { color: #fe6928; }
 	width: 95%;
 	float: left;
 	padding: 0;
-	text-align: left;
+   text-align: left;
 }
 .bars .skills {
   	margin-top: 36px;
@@ -293,9 +296,10 @@ ul#nav li.current a { color: #fe6928; }
 .bars li {
    position: relative;
   	margin-bottom: 60px;
-  	background: #333;
+  	background: #33333323;
   	height: 42px;
-  	border-radius: 0px;
+   border-radius: 5px;
+   
 }
 .bars li em {
 	font: 15px 'opensans-bold', sans-serif;
@@ -304,20 +308,27 @@ ul#nav li.current a { color: #fe6928; }
    letter-spacing: 2px;
 	font-weight: normal;
    position: relative;
-	top: -36px;
+   top: -40px;
+}
+/* Use this span to have values in the coloured bar and aligned right */
+.bars li span{
+   color: white;
+   text-align: right;
+   /* font-weight: bold; */
+   padding-right: 5px;
+   /* padding-top: 30px; Use this to lower the value below the bar*/
 }
 .bar-expand {
    position: absolute;
    left: 0;
    top: 0;
-
    margin: 0;
    padding-right: 24px;
   	background: #313131;
    display: inline-block;
   	height: 42px;
    line-height: 42px;
-   border-radius: 0px;
+   border-radius: 5px;
 }
 /*
 .git {
@@ -935,7 +946,7 @@ footer {
 }
 
 footer a, footer a:visited { color: #525252; }
-footer a:hover, footer a:focus { color: #fff; }
+footer a:hover, footer a:focus { color: #19f14f; }
 
 /* copyright */
 footer .copyright {
@@ -1003,7 +1014,7 @@ footer .social-links li:first-child { margin-left: 0; }
    line-height: 60px;
  	border-radius: 100%;
 }
-#go-top a:hover { background-color: #0F9095; }
+#go-top a:hover { background-color: #19f14f; }
 
 
 .social .btn:first-child{
@@ -1022,3 +1033,12 @@ footer .social-links li:first-child { margin-left: 0; }
 .github-btn{
    background-color: #34495e !important;
 }
+
+#top20 {
+   background: #fff;
+   padding-top: 90px;
+   padding-bottom: 72px;
+   overflow: hidden;
+}
+
+.nav {background-color: #000524;}

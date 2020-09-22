@@ -58,14 +58,12 @@ class Graphs extends Component {
     }
     render(){
 
-        var text = "Hello, testing how to access elements";
+        var text = "Testing how to access elements";
         // Data does nothing here, just displays it so it isn't unused
         
     
         return(
-            <section id = "graph">
-                <h3 ref = "test">It worked</h3>
-                <p>Unreal</p>
+            <section id = "intro">
                 <div ref = {this.testText}>{text}</div>
                 <div ref = {this.testGraph}></div>
             </section>

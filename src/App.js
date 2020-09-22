@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 // import $ from 'jquery';
 import './App.css';
-// import Header from './Components/Header';
+import Header from './Components/Header';
 import Footer from './Components/Footer';
-// import About from './Components/About';
+import About from './Components/About';
 // import Resume from './Components/Resume';
 // import Contact from './Components/Contact';
 // import Portfolio from './Components/Portfolio';
-import TestGraph from './Components/TestGraph';
-import CSVGraph from './Components/CSVGraph';
-import top20 from './top20_countries1.csv';
+import Introduction from './Components/Introduction';
+// import TestGraph from './Components/TestGraph';
+import Top20 from './Components/Top20';
+import Top20NoEng from './Components/Top20NoEng';
 
-const td = [10,20,30,40,50,60,70,80,90];
-
-console.log(top20);
+// Data imports
+import top20 from './data/top20_countries.csv';
+import top20_no_eng from './data/top20_no_eng.csv';
 
 
 
@@ -55,13 +56,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Header data={this.state.resumeData.main}/> */}
-        {/* <About data={this.state.resumeData.main}/> */}
+        <Header />
+        <About />
         {/* <Resume data={this.state.resumeData.resume}/> */}
         {/* <Portfolio data={this.state.resumeData.portfolio}/> */}
         {/* <Contact data={this.state.resumeData.main}/> */}
-        <TestGraph  csv = {top20} testData = {td} color = "green"/> 
-        <CSVGraph  csv = {top20} color = "purple"/>
+        <Introduction />
+        {/* <TestGraph  csv = {top20} testData = {td} color = "green"/>  */}
+        <Top20  csv = {top20} color = "purple"/>
+        <Top20NoEng csv = {top20_no_eng} color = "green"/>
         <Footer  />
       </div>
     );

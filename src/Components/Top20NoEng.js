@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 
-class Graphs extends Component {
+class Top20NoEngland extends Component {
 
     constructor(props){
         super(props);
-        this.csvText = React.createRef();
-        this.csvGraph = React.createRef();
+        this.top20NoEngText = React.createRef();
+        this.top20NoEngGraph = React.createRef();
     }
 
     componentDidMount(){
@@ -20,12 +20,13 @@ class Graphs extends Component {
         var width = 900;
         var adj = 65;
 
-        const text = d3.select(this.csvText.current);
+        const text = d3.select(this.top20NoEngText
+.current);
         text.style("color", color);
         text.style("background-color", "white");
 
         // SVG
-        var svg = d3.select(this.csvGraph.current).append("svg")
+        var svg = d3.select(this.top20NoEngGraph.current).append("svg")
         .attr("preserveAspectRatio", "xMinYMin meet")
         .attr("height", height)
         .attr("width", width)
@@ -54,12 +55,11 @@ class Graphs extends Component {
         console.log(dataset);
 
         dataset.then(function(data) {
-            xScale.domain(data.map(function(d) {return d.country}));
+            xScale.domain(data.map(function(d) {return d.nationality}));
             yScale.domain([0, d3.max(data, function(d){return d.count;})]);
         });
 
         // Axes
-
         dataset.then(function(data){
             // X axis and sets the ticks to be rotated
             svg.append("g")
@@ -86,7 +86,7 @@ class Graphs extends Component {
                 .attr("y", 0)
                 .style("text-decoration", "underline")
                 .style("font-size", "22")
-                .text("Number of players from each country to appear in the Premier league");
+                .text("Number of players from each nationality to appear in the Premier league");
 
             // X axis text
             svg.append("text")
@@ -114,7 +114,7 @@ class Graphs extends Component {
             .enter()
             .append("rect")
             .attr("class", "bar")
-            .attr("x", (d) => xScale(d.country))
+            .attr("x", (d) => xScale(d.nationality))
             .attr("y", (d) => yScale(d.count))
             .attr("width", xScale.bandwidth())
             .attr("height", (d) => height - yScale(d.count))
@@ -124,18 +124,37 @@ class Graphs extends Component {
     }
     render(){
 
-        var text = "20 Countries with the most players to have played in the Premier League";
+        var text = "England Removed";
         // Data does nothing here, just displays it so it isn't unused
         
     
         return(
-            <section id = "graph">
-                <div ref = {this.csvText}>{text}</div>
-                <div ref = {this.csvGraph}></div>
-                {/* <svg ref = {this.csvGraph} width="600" height="500" /> */}
+            <section id = "top20">
+                <div className = "row">
+                    <div className="six columns">
+                        <div ref = {this.top20NoEngText
+            }>
+                            <h3>{text}</h3>
+                            <p>This chart looks much better and gives us more information. The most common country is France followed closely by the Scots and Irish.</p>
+                            <p>Historically there have always been close links between England and France and the close proximity of the countries must also play a part too. 
+                                These are not the only reasons for French players featuring so often. France is a two-time men's FIFA World Cup Winner and UEFA European Championship
+                                winner so there is a high standard of football in the country from the 80s and 90s. 
+                            </p>
+                            <p>The Scottish and Irish are unsurprising being in the top 3. Both countries have a long history of football, speak the same language and have similar culture to 
+                                England which makes the English league an attractive place to play in. Both countries home top divisions are porfessional however, do not have the money or skill
+                                to compete with the top division in England, especially since the creation of the Premier League, meaning the best Irish and Scots move to England.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div className= "six columns">
+                        <div ref = {this.top20NoEngGraph} width="600" height="500"></div>
+                    </div>
+                </div>    
+                    {/* <svg ref = {this.top20NoEngGraph} width="600" height="500" /> */}
             </section>
         )
     }
 }
 
-export default Graphs;
+export default Top20NoEngland;

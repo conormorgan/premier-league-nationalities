@@ -1,5 +1,4 @@
-country, count
-England,1402
+nationality,count
 France,201
 Scotland,189
 Ireland,171
@@ -19,3 +18,4 @@ Belgium,53
 Australia,51
 United States,45
 Nigeria,40
+Jamaica,39
