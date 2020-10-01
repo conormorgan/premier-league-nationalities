@@ -1041,4 +1041,28 @@ footer .social-links li:first-child { margin-left: 0; }
    overflow: hidden;
 }
 
+#choropleth{
+   background: #fff;
+   padding-top: 90px;
+   padding-bottom: 72px;
+   overflow: hidden;
+}
+
 .nav {background-color: #000524;}
+
+.country:hover{
+   stroke: black;
+   stroke-width: 1pt;
+   fill: blueviolet;
+   opacity: 1;
+   cursor: pointer;
+}
+
+.chorolabel{
+   fill: black;
+   text-decoration: underline;
+}
+
+svg text {
+   background-color: black;
+}

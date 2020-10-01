@@ -51,7 +51,7 @@ class Top20 extends Component {
                 d.count = +d.count;                
                 return d;});
         });
-        console.log(dataset);
+        // console.log(dataset);
 
         dataset.then(function(data) {
             xScale.domain(data.map(function(d) {return d.nationality}));
@@ -117,6 +117,18 @@ class Top20 extends Component {
             .attr("x", (d) => xScale(d.nationality))
             .attr("y", (d) => yScale(d.count))
             .attr("width", xScale.bandwidth())
+            .on("mouseenter", (value) => {
+                svg.selectAll(".tooltip")
+                    .data([value])
+                    .join("text")
+                    .attr("class", "tooltip")
+                    .text(value.count)
+                    .attr("x", xScale(value.nationality) + xScale.bandwidth()/2)
+                    .attr("y", yScale(value.count) - 8)
+                    .attr("text-anchor", "middle")
+                    .transition();
+            })
+            .on("mouseleave", () => svg.select(".tooltip").remove())
             .attr("height", (d) => height - yScale(d.count))
             .style("fill", color);
         });

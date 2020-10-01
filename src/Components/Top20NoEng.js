@@ -52,7 +52,7 @@ class Top20NoEngland extends Component {
                 d.count = +d.count;                
                 return d;});
         });
-        console.log(dataset);
+        // console.log(dataset);
 
         dataset.then(function(data) {
             xScale.domain(data.map(function(d) {return d.nationality}));
@@ -118,6 +118,18 @@ class Top20NoEngland extends Component {
             .attr("y", (d) => yScale(d.count))
             .attr("width", xScale.bandwidth())
             .attr("height", (d) => height - yScale(d.count))
+            .on("mouseenter", (value) => {
+                svg.selectAll(".tooltip")
+                    .data([value])
+                    .join("text")
+                    .attr("class", "tooltip")
+                    .text(value.count)
+                    .attr("x", xScale(value.nationality) + xScale.bandwidth()/2)
+                    .attr("y", yScale(value.count) - 8)
+                    .attr("text-anchor", "middle")
+                    .transition();
+            })
+            .on("mouseleave", () => svg.select(".tooltip").remove())
             .style("fill", color);
         });
 
@@ -131,9 +143,8 @@ class Top20NoEngland extends Component {
         return(
             <section id = "top20">
                 <div className = "row">
-                    <div className="six columns">
-                        <div ref = {this.top20NoEngText
-            }>
+                    <div className="five columns">
+                        <div ref = {this.top20NoEngText}>
                             <h3>{text}</h3>
                             <p>This chart looks much better and gives us more information. The most common country is France followed closely by the Scots and Irish.</p>
                             <p>Historically there have always been close links between England and France and the close proximity of the countries must also play a part too. 
@@ -147,7 +158,7 @@ class Top20NoEngland extends Component {
                         </div>
                     </div>
                     
-                    <div className= "six columns">
+                    <div className= "seven columns">
                         <div ref = {this.top20NoEngGraph} width="600" height="500"></div>
                     </div>
                 </div>    

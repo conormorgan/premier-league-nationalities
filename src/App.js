@@ -12,11 +12,15 @@ import Introduction from './Components/Introduction';
 // import TestGraph from './Components/TestGraph';
 import Top20 from './Components/Top20';
 import Top20NoEng from './Components/Top20NoEng';
+import TreeMap from './Components/TreeMap';
+import Choropleth from './Components/Choropleth';
 
 // Data imports
 import top20 from './data/top20_countries.csv';
 import top20_no_eng from './data/top20_no_eng.csv';
-
+import top20_no_eng1 from './data/top20_no_eng1.csv';
+import map_data from './data/full-world-data.json';
+import map_data_no_eng from './data/world-data-no-eng.json';
 
 
 class App extends Component {
@@ -24,29 +28,13 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      foo: 'bar',
-      // resumeData: {}
+      mapData: map_data,
     };
 
     ReactGA.initialize('UA-110570651-1');
     ReactGA.pageview(window.location.pathname);
 
   }
-
-  // getResumeData(){
-  //   $.ajax({
-  //     url:'./resumeData.json',
-  //     dataType:'json',
-  //     cache: false,
-  //     success: function(data){
-  //       this.setState({resumeData: data});
-  //     }.bind(this),
-  //     error: function(xhr, status, err){
-  //       console.log(err);
-  //       alert(err);
-  //     }
-  //   });
-  // }
 
   componentDidMount(){
     // this.getResumeData();
@@ -65,6 +53,8 @@ class App extends Component {
         {/* <TestGraph  csv = {top20} testData = {td} color = "green"/>  */}
         <Top20  csv = {top20} color = "purple"/>
         <Top20NoEng csv = {top20_no_eng} color = "green"/>
+        <TreeMap csv = {top20_no_eng1}/>
+        <Choropleth csv = {top20} json1 = {map_data} json2 = {map_data_no_eng} />
         <Footer  />
       </div>
     );
