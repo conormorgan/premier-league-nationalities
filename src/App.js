@@ -18,9 +18,10 @@ import Choropleth from './Components/Choropleth';
 // Data imports
 import top20 from './data/top20_countries.csv';
 import top20_no_eng from './data/top20_no_eng.csv';
-import top20_no_eng1 from './data/top20_no_eng1.csv';
-import map_data from './data/full-world-data.json';
-import map_data_no_eng from './data/world-data-no-eng.json';
+import map_data from './data/full-medium-world-data.json';
+import map_data_no_eng from './data/no-eng-medium-world-data.json';
+import treemap_data from './data/treemap.json';
+import treemap_no_eng from './data/treemap-no-eng.json';
 
 
 class App extends Component {
@@ -53,7 +54,7 @@ class App extends Component {
         {/* <TestGraph  csv = {top20} testData = {td} color = "green"/>  */}
         <Top20  csv = {top20} color = "purple"/>
         <Top20NoEng csv = {top20_no_eng} color = "green"/>
-        <TreeMap csv = {top20_no_eng1}/>
+        <TreeMap treeData = {treemap_data} no_eng = {treemap_no_eng}/>
         <Choropleth csv = {top20} json1 = {map_data} json2 = {map_data_no_eng} />
         <Footer  />
       </div>

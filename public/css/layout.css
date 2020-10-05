@@ -1066,3 +1066,12 @@ footer .social-links li:first-child { margin-left: 0; }
 svg text {
    background-color: black;
 }
+
+.bar:hover{
+   stroke:red;
+   stroke-width:2pt;
+}
+
+.legend{
+   background-color: chartreuse;
+}
