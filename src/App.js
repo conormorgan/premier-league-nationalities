@@ -20,8 +20,8 @@ import top20 from './data/top20_countries.csv';
 import top20_no_eng from './data/top20_no_eng.csv';
 import map_data from './data/full-medium-world-data.json';
 import map_data_no_eng from './data/no-eng-medium-world-data.json';
-import treemap_data from './data/treemap.json';
-import treemap_no_eng from './data/treemap-no-eng.json';
+import treemap_data from './data/treemap-codes.json';
+import treemap_no_eng from './data/treemap-codes-noeng.json';
 
 
 class App extends Component {

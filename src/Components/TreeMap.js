@@ -30,7 +30,7 @@ class TreeMap extends Component{
 
         var width = 959;
         var height = 600;
-        var adj = 65;
+        var adj = 35;
 
         // SVG
         var svg = d3.select(this.treeMap.current).append("svg")
@@ -59,10 +59,7 @@ class TreeMap extends Component{
             (root);
 
         const color = d3.scaleOrdinal().domain(["Europe", "Asia", "Africa", "North America", "South America","Oceania"])
-                                       .range([ "green", "red", "orange","blue","yellow","aqua"]);
-
-        // const opacity = d3.scaleLinear().domain([10, 30])
-        //                                 .range([.5,1]);
+                                       .range([ "#90be6d", "#ffbc42", "#8f2d56","#218380","#3a0ca3","#73d2de"]);
 
         // Select the nodes
         var nodes = svg.selectAll("rect")
@@ -77,10 +74,17 @@ class TreeMap extends Component{
             .attr('height', function (d) { return d.y1 - d.y0; })
             .style("stroke", "black")
             .style("fill", function(d){ 
-                // console.log(d);
                 return color(d.parent.data.name)
-            } )
-            // .attr("opacity", function(d){ return opacity(d.data.count)})
+            })
+            .append("title").text(function(d){
+                if (d.data.count === 1){
+                    return d.data.name + ": " + d.data.count + " player"
+                }
+                else{
+                    return d.data.name + ": " + d.data.count + " players";
+                }
+            });
+
         
         nodes.exit().remove()
 
@@ -91,44 +95,51 @@ class TreeMap extends Component{
             .append("text")
             .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
             .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-            .text(function(d){ return d.data.name })
+            .text(function(d){ return d.data.code;})
             // .attr("font-size", "12px")
             .attr("fill", "white")
-            // .attr("opacity", function(d){            Do something with the opacity to hide labels if they are too big
-            //   return d.data.name.length > 7 ? 0:1;
-            // });
+            .attr("opacity", function(d){
+                var width = this.getBBox().width;
+                var height =this.getBBox().height;
+                if((width + 5 < d.x1 - d.x0)&&(height + 20 < d.y1-d.y0)){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+            });
 
-        // Country counts under title
-        svg.selectAll("vals")
-            .data(root.leaves())
-            .enter()
-            .append("text")
-            .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
-            .attr("y", function(d){ return d.y0+35})    // +20 to adjust position (lower)
-            .text(function(d){ return d.data.count })
-            .attr("font-size", "11px")
-            .attr("fill", "white")
-        
-        // Add the continental titles - don't think need these, better with a legend
-        // svg
-        // .selectAll("titles")
-        // .data(root.descendants().filter(function(d){return d.depth===1}))
-        // .enter()
-        // .append("text")
-        //     .attr("x", function(d){ return d.x0})
-        //     .attr("y", function(d){ return d.y0+21})
-        //     .text(function(d){ return d.data.name })
-        //     .attr("font-size", "19px")
-        //     .attr("fill",  "black")//function(d){ return color(d.data.name)} )
+        // // Country counts under title
+        // svg.selectAll("vals")
+        //     .data(root.leaves())
+        //     .enter()
+        //     .append("text")
+        //     .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
+        //     .attr("y", function(d){ return d.y0+35})    // +20 to adjust position (lower)
+        //     .text(function(d){ return d.data.count })
+        //     .attr("font-size", "11px")
+        //     .attr("fill", "white")
     
         // Add the chart heading
         svg
         .append("text")
             .attr("x", 0)
             .attr("y", -14)    // +20 to adjust position (lower)
-            .text("Three group leaders and 14 employees")
+            .text("Treemap showing the comparitive difference in amounts between each country and continent")
             .attr("font-size", "19px")
-            .attr("fill",  "black" )
+            .attr("fill",  "black" );
+
+        var zoom = d3.zoom()
+                    .scaleExtent([1, 8])
+                    .on('zoom', function() {
+                        svg.selectAll('rect')
+                        .attr('transform', d3.event.transform);
+                        svg.selectAll("text")
+                        .attr('transform', d3.event.transform);
+                    });
+
+        svg.call(zoom);
+        
 
     }
 
