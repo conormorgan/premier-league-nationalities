@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-// import ParticlesBg  from "particles-bg";
+import ParticlesBg from 'particles-bg';
+import { FaHome } from "react-icons/fa";
 
 class Header extends Component {
   render() {
 
     return (
       <header id="home">
+      <ParticlesBg type="square" bg={true} />
       <nav id="nav-wrap">
          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
 	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
 
          <ul id="nav" className="nav">
-            <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
+            <li><a className="text-left" href="https:\\conormorgan.github.io"><FaHome></FaHome> Home pAge</a></li>
+            <li className="current"><a className="smoothscroll" href="#home">EPL Nations</a></li>
             <li><a className="smoothscroll" href="#about">Introduction</a></li>
 	         <li><a className="smoothscroll" href="#top20">Top20</a></li>
             <li><a className="smoothscroll" href="#treemap">TreeMap</a></li>
@@ -23,12 +26,8 @@ class Header extends Component {
       
          <div className="banner-text">
             <h1 className="responsive-headline">Premier League Nations</h1>
-            <h3>An insight and analysis of all the nations to have players compete in the English Premier League</h3>
+            <h3>Analysis of all the nations to have players compete in the English Premier League from its inception in 1992</h3>
             <hr />
-            {/* <ul className="social">
-               <a href="#" className="button btn project-btn"><i className="fa fa-book"></i>Project</a>
-               <a href="#" className="button btn github-btn"><i className="fa fa-github"></i>Github</a>
-            </ul> */}
          </div>
       </div>
 

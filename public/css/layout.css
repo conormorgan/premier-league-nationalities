@@ -1079,3 +1079,12 @@ svg text {
 .rectangle:hover{
    stroke-width: 3pt;
 }
+
+.header-dark-bg{
+   color: #FFFFFF;
+   margin-top: 3%;
+}
+
+.text-dark-bg{
+   color: #FFFFFF;
+}

@@ -151,16 +151,35 @@ class TreeMap extends Component{
         return(
             <section id = "treemap">
                 <div className = "row">
-                        <h2>Treemap</h2>
-                        <div className = "row">
-                            <div className="six columns">
-                                <button onClick= {() => this.setState({treemapData: this.props.treeData})}>All countries</button>
-                                <button onClick= {() => this.setState({treemapData: this.props.no_eng})}>No England</button>
-                            </div>
-                        </div>
-                        <div ref = {this.treeMap}></div>
+                    <h2 className="header-dark-bg">Treemap</h2>
+
+                    <p className="text-dark-bg">
+                        This treemap is another way to visualise the data in, perhaps, an easier format to get the dominance of European and British players.
+                        Each country has a rectangle and the area of each rectangle corresponds to how many payers have featured in the league.
+                        Also the treemap is colour-coded to show the continents and they have contributed to the array of players.
+                    </p>
+                    <p className="text-dark-bg">
+                        The treemap is interactive as hovering over each country will show the player count. 
+                        You can also zoom in to inspect some of the smaller countries more closely and see how they stack up.
+                        Again, the buttons are there to remove the English players, clicking either button is also a good way to reset the view of the treemap.
+                    </p>
+
+                        
                     
                 </div>
+
+                <div className = "row">
+                    <div className="six columns">
+                        <button onClick= {() => this.setState({treemapData: this.props.treeData})}>All countries</button>
+                        <button onClick= {() => this.setState({treemapData: this.props.no_eng})}>No England</button>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="nine columns">
+                        <div ref = {this.treeMap}></div>
+                    </div>
+                </div>
+                
                 
             </section>
         )

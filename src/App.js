@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -29,10 +30,27 @@ class App extends Component {
 
   }
 
-  //componentDidMount(){
-    // this.getResumeData();
-    // data = {this.state.resumeData.main} Removed this from the components that I'm using because resume was causing errors
-  //}
+  componentDidMount(){
+    $('.smoothscroll').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash,
+	    $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 800, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	  });
+
+    $('header').css({ 'height': $(window).height() });
+    $(window).on('resize', function() {
+ 
+         $('header').css({ 'height': $(window).height() });
+         $('body').css({ 'width': $(window).width() })
+    });
+  }
 
   render() {
     return (
