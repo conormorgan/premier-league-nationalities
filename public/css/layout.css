@@ -1075,3 +1075,7 @@ svg text {
 .legend{
    background-color: chartreuse;
 }
+
+.rectangle:hover{
+   stroke-width: 3pt;
+}

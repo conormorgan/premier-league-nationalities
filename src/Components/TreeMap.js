@@ -45,16 +45,11 @@ class TreeMap extends Component{
                     .classed("svg-content", true);
 
         // Give data to hierarchy layout -> may need to change d.value to d.count
-        var root = d3.hierarchy(data).sum((d => d.count));
-
-        // var kx = width / root.dx; 
-        // var ky = height / 1;
+        var root = d3.hierarchy(data).sum((d => d.count));;
 
         // Initialise treemap
         d3.treemap()
             .size([width, height])
-            // .paddingTop(28)
-            // .paddingRight(7)
             .paddingInner(2)
             (root);
 
@@ -68,6 +63,7 @@ class TreeMap extends Component{
         // Draw the rectangles
         nodes.enter()
             .append("rect")
+            .attr("class","rectangle")
             .attr('x', function (d) { return d.x0; })
             .attr('y', function (d) { return d.y0; })
             .attr('width', function (d) { return d.x1 - d.x0; })
@@ -95,8 +91,7 @@ class TreeMap extends Component{
             .append("text")
             .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
             .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-            .text(function(d){ return d.data.code;})
-            // .attr("font-size", "12px")
+            .text(function(d){return d.data.code})
             .attr("fill", "white")
             .attr("opacity", function(d){
                 var width = this.getBBox().width;
@@ -109,26 +104,31 @@ class TreeMap extends Component{
                 }
             });
 
-        // // Country counts under title
-        // svg.selectAll("vals")
-        //     .data(root.leaves())
-        //     .enter()
-        //     .append("text")
-        //     .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
-        //     .attr("y", function(d){ return d.y0+35})    // +20 to adjust position (lower)
-        //     .text(function(d){ return d.data.count })
-        //     .attr("font-size", "11px")
-        //     .attr("fill", "white")
+        // Country counts under title
+        svg.selectAll("vals")
+            .data(root.leaves())
+            .enter()
+            .append("text")
+            .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
+            .attr("y", function(d){ return d.y0+35})    // +20 to adjust position (lower)
+            .text(function(d){ 
+                if(d.data.count > 26){
+                    return d.data.count 
+                }
+            })
+            .attr("font-size", "11px")
+            .attr("fill", "white")
     
         // Add the chart heading
         svg
         .append("text")
             .attr("x", 0)
             .attr("y", -14)    // +20 to adjust position (lower)
-            .text("Treemap showing the comparitive difference in amounts between each country and continent")
+            .text("Treemap showing the counts of players from each country to play in EPL and coloured by continent")
             .attr("font-size", "19px")
             .attr("fill",  "black" );
 
+        //Behavioiur for zoom functionality
         var zoom = d3.zoom()
                     .scaleExtent([1, 8])
                     .on('zoom', function() {
@@ -138,9 +138,13 @@ class TreeMap extends Component{
                         .attr('transform', d3.event.transform);
                     });
 
-        svg.call(zoom);
-        
-
+        // Calls the zoom funct and removes panning and dragging
+        svg.call(zoom)
+            .on("mousedown.zoom", null)
+            .on("touchstart.zoom", null)
+            .on("touchmove.zoom", null)
+            .on("touchend.zoom", null);
+    
     }
 
     render(){
