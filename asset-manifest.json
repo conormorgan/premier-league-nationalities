@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/premier-league-nationalities/static/css/main.5facb584.chunk.css",
+    "main.js": "/premier-league-nationalities/static/js/main.9eab5745.chunk.js",
+    "main.js.map": "/premier-league-nationalities/static/js/main.9eab5745.chunk.js.map",
+    "runtime-main.js": "/premier-league-nationalities/static/js/runtime-main.5c081f1e.js",
+    "runtime-main.js.map": "/premier-league-nationalities/static/js/runtime-main.5c081f1e.js.map",
+    "static/js/2.e56f3dad.chunk.js": "/premier-league-nationalities/static/js/2.e56f3dad.chunk.js",
+    "static/js/2.e56f3dad.chunk.js.map": "/premier-league-nationalities/static/js/2.e56f3dad.chunk.js.map",
+    "index.html": "/premier-league-nationalities/index.html",
+    "precache-manifest.15c98ff4d01ec307f6bf86bc7d3645f3.js": "/premier-league-nationalities/precache-manifest.15c98ff4d01ec307f6bf86bc7d3645f3.js",
+    "service-worker.js": "/premier-league-nationalities/service-worker.js",
+    "static/css/main.5facb584.chunk.css.map": "/premier-league-nationalities/static/css/main.5facb584.chunk.css.map",
+    "static/js/2.e56f3dad.chunk.js.LICENSE.txt": "/premier-league-nationalities/static/js/2.e56f3dad.chunk.js.LICENSE.txt",
+    "static/media/top20_countries.csv": "/premier-league-nationalities/static/media/top20_countries.0e30f631.csv",
+    "static/media/top20_no_eng.csv": "/premier-league-nationalities/static/media/top20_no_eng.47d6ad68.csv"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5c081f1e.js",
+    "static/js/2.e56f3dad.chunk.js",
+    "static/css/main.5facb584.chunk.css",
+    "static/js/main.9eab5745.chunk.js"
+  ]
+}
