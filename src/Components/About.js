@@ -7,7 +7,7 @@ class About extends Component {
       <section id="about">
       <div className="row">
          <div className="two columns">
-            <img className="profile-pic"  src="premier-league-nationalities/images/profilepic.jpg" alt="Author" />
+            
          </div>
          <div className="ten columns main-col">
             <h2>Introduction</h2>
@@ -18,8 +18,10 @@ class About extends Component {
             <p>Some countries are represented more than others and this analysis aims to show the differences between countries and any trends that can be seen.</p>
 
             <div className="row">
-               <div className="columns contact-details">
-                  <h2>This Intro is fine for now, can add more in below here too if needs be</h2>
+               <div className="columns">
+                  <h2>Methodology</h2>
+                  <p>The data used is scraped from FBRef website and is up-to-date until the end of the 2020/2021 season. Python and the scraping package Beautiful Soup were used to gather the data.</p>
+                  <p>Once the data was collecting, NumPy was used to cleanse and prepare the data in formats to be displayed. Displaying the data was done using D3.js</p>
                </div>
             </div>
          </div>
